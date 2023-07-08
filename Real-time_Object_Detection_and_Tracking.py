@@ -24,12 +24,6 @@ cv2.createTrackbar("Threshold1", "Parameters", 23, 255, empty)
 cv2.createTrackbar("Threshold2", "Parameters", 20, 255, empty)
 cv2.createTrackbar("Area", "Parameters", 5000, 30000, empty)
 
-# cv2.namedWindow("Parameters")
-# cv2.resizeWindow("Parameters", 640, 240)
-# cv2.createTrackbar("Threshold1", "Parameters", 23, 255, empty)
-# cv2.createTrackbar("Threshold2", "Parameters", 20, 255, empty)
-# cv2.createTrackbar("Area", "Parameters", 5000, 30000, empty)
-
 def stackImages(scale,imgArray):
     rows = len(imgArray)
     cols = len(imgArray[0])
@@ -73,11 +67,8 @@ def getContours(img,imgContour):
             print(len(approx))
             x , y , w, h = cv2.boundingRect(approx)
             cv2.rectangle(imgContour, (x , y ), (x + w , y + h ), (0, 255, 0), 5)
-
-            cv2.putText(imgContour, "Points: " + str(len(approx)), (x + w + 20, y + 20), cv2.FONT_HERSHEY_COMPLEX, .7,
-                        (0, 255, 0), 2)
-            cv2.putText(imgContour, "Area: " + str(int(area)), (x + w + 20, y + 45), cv2.FONT_HERSHEY_COMPLEX, 0.7,
-                        (0, 255, 0), 2)
+            cv2.putText(imgContour, "Points: " + str(len(approx)), (x + w + 20, y + 20), cv2.FONT_HERSHEY_COMPLEX, .7, (0, 255, 0), 2)
+            cv2.putText(imgContour, "Area: " + str(int(area)), (x + w + 20, y + 45), cv2.FONT_HERSHEY_COMPLEX, 0.7, (0, 255, 0), 2)
 
 while True:
     success, img = cap.read()
@@ -90,8 +81,18 @@ while True:
     kernel = np.ones((5, 5))
     imgDil = cv2.dilate(imgCanny, kernel, iterations=1)
     getContours(imgDil,imgContour)
-    imgStack = stackImages(0.8,([img,imgCanny],
-                                [imgDil,imgContour]))
+    imgStack = stackImages(0.8,([img,imgCanny], [imgDil,imgContour]))
     cv2.imshow("Result", imgStack)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
+
+
+
+#-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+# cv2.namedWindow("Parameters")
+# cv2.resizeWindow("Parameters", 640, 240)
+# cv2.createTrackbar("Threshold1", "Parameters", 23, 255, empty)
+# cv2.createTrackbar("Threshold2", "Parameters", 20, 255, empty)
+# cv2.createTrackbar("Area", "Parameters", 5000, 30000, empty)
