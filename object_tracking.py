@@ -27,10 +27,10 @@ while True:
         cv2.putText(img, "Lost", (100, 75), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
 
     cv2.rectangle(img, (15, 15), (200, 90), (255, 0, 255), 2)
-    cv2.putText(img, "fps:", (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 0, 255), 2);
-    cv2.putText(img, "Status:", (20, 75), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 0, 255), 2);
+    cv2.putText(img, "fps:", (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 0, 255), 2)
+    cv2.putText(img, "Status:", (20, 75), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 0, 255), 2)
 
-    fps = cv2.getTickFrequency() / (cv2.getTickCount() - timer);
+    fps = cv2.getTickFrequency() / (cv2.getTickCount() - timer)
   
     if fps > 60: 
         myColor = (20, 230, 20)
@@ -39,7 +39,7 @@ while True:
     else: 
         myColor = (20, 20, 230)
       
-    cv2.putText(img,str(int(fps)), (75, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.7, myColor, 2);
+    cv2.putText(img,str(int(fps)), (75, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.7, myColor, 2)
 
     cv2.imshow("Tracking", img)
   
