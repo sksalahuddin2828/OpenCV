@@ -45,3 +45,17 @@ while True:
   
     if cv2.waitKey(1) & 0xff == ord('q'):
        break
+
+
+#----------------------------------------------------------------------------------------------------------
+
+# import cv2
+# print(cv2.__version__)
+
+# tracker = cv2.TrackerBoosting_create()
+# tracker = cv2.TrackerMIL_create()
+# tracker = cv2.TrackerKCF_create()
+# tracker = cv2.TrackerTLD_create()
+# tracker = cv2.TrackerMedianFlow_create()
+# tracker = cv2.TrackerCSRT_create()
+# tracker = cv2.TrackerMOSSE_create()
